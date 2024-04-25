@@ -19,4 +19,11 @@ public class View {
     public View (Controller contr) {
         this.contr = contr;
     }
+    
+    /**
+     * Fakes a execution of the view running and issuing inputs and getting outputs
+     */
+    public void runFakeView() {
+        contr.requestNewSale();
+    }
 }

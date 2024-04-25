@@ -14,10 +14,10 @@ public class SaleInformation {
     private double change;
     
     public SaleInformation() {
-        setSaleStartTime();
+        setSaleTime();
     }
     
-    private void setSaleStartTime() {
+    private void setSaleTime() {
         this.saleTime = LocalDateTime.now();
     }
 }
