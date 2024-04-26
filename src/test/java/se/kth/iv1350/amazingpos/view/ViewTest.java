@@ -36,7 +36,6 @@ public class ViewTest {
     @Test
     public void testRunFakeView() {
         viewInstance.runFakeView();
-        viewInstance;
         
     }
 }
