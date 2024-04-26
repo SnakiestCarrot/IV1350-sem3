@@ -9,5 +9,7 @@ package se.kth.iv1350.amazingpos.integration;
  * @author caspt
  */
 public class ArticleCatalogHandler {
-    
+    public boolean checkValidArticle(int identifier) {
+        return identifier > 100;
+    }
 }

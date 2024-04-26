@@ -27,6 +27,6 @@ public class SaleInformationTest {
 
     @Test
     public void testSetSaleTime() {
-        instanceToTest.
+        
     }    
 }
