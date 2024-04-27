@@ -29,4 +29,8 @@ public class Controller {
     public void requestNewSale() {
         this.sale = new Sale();
     }
+    
+    public ArticleDTO enterArticleIdentifier (int identifier) {
+        return catalogHandler.fetchArticleDTO(identifier);
+    }
 }

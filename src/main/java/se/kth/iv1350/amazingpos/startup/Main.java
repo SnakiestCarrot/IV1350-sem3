@@ -21,8 +21,9 @@ public class Main {
         ExternalAccountingManager accountingManager = new ExternalAccountingManager();
         ArticleCatalogHandler catalogHandler = new ArticleCatalogHandler();
         
-        
         Controller contr = new Controller(printer, accountingManager, catalogHandler);
         View view = new View(contr);
+        
+        
     }
 }
