@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package integration;
+package se.kth.iv1350.amazingpos.integration;
 
 import org.junit.jupiter.api.*;
 import java.io.ByteArrayOutputStream;
@@ -68,6 +68,6 @@ public class ArticleCatalogHandlerTest {
 
         ArticleDTO actualOutput = instanceToTest.fetchArticleDTO(99);
 
-        assertTrue(actualOutput == expectedOutput, "The method did not return null with an invalid identifier.");
+        assertTrue(actualOutput == expectedOutput, "The method did not return null with an invalid article identifier.");
     }
 }
