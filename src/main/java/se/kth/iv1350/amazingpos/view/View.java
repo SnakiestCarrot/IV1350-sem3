@@ -27,11 +27,12 @@ public class View {
      */
     public void runFakeView() {
         contr.requestNewSale();
-        printAfterIdentifierEntered(contr.enterArticleIdentifier(101), contr.sale);
+        printAfterIdentifierEntered(contr.enterArticleIdentifier(101), this.contr.getCurrentTotalSaleCost());
     }
     
-    private void printAfterIdentifierEntered (ArticleDTO articleDTO, Sale currentSale) {
-        System.out.println("");
-        System.out.println("");
+    private void printAfterIdentifierEntered (ArticleDTO articleDTO, double totalSaleCost) {
+        System.out.println("Article name: " + articleDTO.getName());
+        System.out.println("Article price: " + articleDTO.getPrice());
+        System.out.println("Running total: " + totalSaleCost);
     }
 }

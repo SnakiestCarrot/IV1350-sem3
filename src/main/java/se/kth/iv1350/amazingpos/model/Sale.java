@@ -10,4 +10,8 @@ public class Sale {
     public Sale() {
         this.saleInformation = new SaleInformation();
     }
+
+    public double getTotalSaleCost () {
+        return this.saleInformation.getTotalCost();
+    }
 }

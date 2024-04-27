@@ -34,4 +34,12 @@ public class SaleInformation {
     double getTotalSaleVAT () {
         return this.totalSaleVAT;
     }
+
+    private void addArticleToList (Article articleToAdd) {
+
+    }
+
+    private void createNewArticleListEntry (Article articleToAdd) {
+
+    }
 }

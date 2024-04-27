@@ -24,6 +24,7 @@ public class Main {
         Controller contr = new Controller(printer, accountingManager, catalogHandler);
         View view = new View(contr);
         
+        view.runFakeView();
         
     }
 }
