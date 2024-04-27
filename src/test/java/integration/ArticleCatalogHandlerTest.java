@@ -17,11 +17,11 @@ import se.kth.iv1350.amazingpos.integration.ArticleDTO;
 
 /**
  *
- * @author caspt
+ * behövs det kommentarer för testerna?
  */
 public class ArticleCatalogHandlerTest {
     private ArticleCatalogHandler instanceToTest;
-    
+
     @BeforeEach
     public void setUp() {
         instanceToTest = new ArticleCatalogHandler();

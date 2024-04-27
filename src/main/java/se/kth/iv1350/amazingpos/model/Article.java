@@ -7,8 +7,8 @@ package se.kth.iv1350.amazingpos.model;
 import se.kth.iv1350.amazingpos.integration.ArticleDTO;
 
 /**
- *
- * @author caspt
+ * Represents an article, with necessary details like identifier and price.
+ * This class is used to create an article instance from ArticleDTO.
  */
 public class Article {
     

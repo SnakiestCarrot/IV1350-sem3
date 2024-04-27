@@ -12,6 +12,8 @@ public class Controller {
     private ArticleCatalogHandler catalogHandler;
     private Sale sale;
     /**
+     * Initializes a new instance of the Controller class, setting up the necessary components for handling receipt printing,
+     * accounting updates, and article information retrieval.
      * 
      * @param printer Takes a ReceiptPrinter instance to later be used for the printing of the receipt.
      * @param accountingManager Takes an ExternalAccountingManager instance to later update the external accounting system

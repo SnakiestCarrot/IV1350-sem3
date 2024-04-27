@@ -5,8 +5,8 @@
 package se.kth.iv1350.amazingpos.integration;
 
 /**
- *
- * @author caspt
+ * ExternalAccountingManager will represent the system that handles the payment 
+ * and change of the transaction. 
  */
 public class ExternalAccountingManager {
     

@@ -5,8 +5,7 @@
 package se.kth.iv1350.amazingpos.integration;
 
 /**
- *
- * @author caspt
+ * ReceiptPrinter takes in SaleInformation and uses it to print a receipt at the end of the sale.
  */
 public class ReceiptPrinter {
     

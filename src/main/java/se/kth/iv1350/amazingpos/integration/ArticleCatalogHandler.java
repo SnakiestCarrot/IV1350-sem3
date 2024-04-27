@@ -5,8 +5,8 @@
 package se.kth.iv1350.amazingpos.integration;
 
 /**
- *
- * @author caspt
+ * Handles operations related to fetching article data transfer objects (DTOs) based on article identifiers.
+ * This class checks the validity of an article identifier and retrieves the corresponding ArticleDTO if valid.
  */
 public class ArticleCatalogHandler {
     
