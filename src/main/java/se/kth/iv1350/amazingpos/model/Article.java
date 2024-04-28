@@ -16,13 +16,37 @@ public class Article {
     private double price;
     private double vatRate;
     private String name;
-    private double amount;
+    private double quantity;
     
     public Article (ArticleDTO artDTO, double amount) {
         this.identifier = artDTO.getIdentifier();
         this.price = artDTO.getPrice();
         this.vatRate = artDTO.getVatRate();
         this.name = artDTO.getName();
-        this.amount = amount;
+        this.quantity = quantity;
+    }
+
+    public int getIdentifier () {
+        return this.identifier;
+    }
+
+    public double getPrice () {
+        return this.price;
+    }
+
+    public double getVatRate () {
+        return this.vatRate;
+    }
+
+    public String getName () {
+        return this.name;
+    }
+
+    public double getQuantity () {
+        return this.quantity;
+    }
+
+    public void setQuantity (double quantityToSet) {
+        this.quantity = quantityToSet;
     }
 }

@@ -20,7 +20,6 @@ public class ArticleDTO {
         this.price = 2.99;
         this.vatRate = 0.25;
         this.name = "Banana";
-
     }
     
     public int getIdentifier () {
