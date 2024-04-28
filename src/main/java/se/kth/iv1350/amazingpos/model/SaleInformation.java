@@ -50,7 +50,7 @@ public class SaleInformation {
     private void addQuantityToArticleInList (Article articleToAdd, double quantity) {
         for (int i = 0; i < articleList.size(); i++) {
             if (articleList.get(i).getIdentifier() == articleToAdd.getIdentifier()) {
-                articleList.get(i).setQuantity(quantity);
+                articleList.get(i).addQuantity(quantity);
             }
         }
     }

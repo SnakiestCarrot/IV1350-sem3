@@ -49,4 +49,8 @@ public class Article {
     public void setQuantity (double quantityToSet) {
         this.quantity = quantityToSet;
     }
+
+    public void addQuantity (double quantityToAdd) {
+        this.quantity += quantityToAdd;
+    }
 }
