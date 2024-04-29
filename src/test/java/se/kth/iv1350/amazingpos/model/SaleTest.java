@@ -49,13 +49,23 @@ public class SaleTest {
     }
 
     @Test
-    public void testAddingTwoUniqueItems() {
+    public void testAddingUniqueItemsToSale() {
         ArticleDTO testArticleDTOBanana = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
         ArticleDTO testArticleDTOOrange = new ArticleDTO(102, 1.99, 0.25, "Orange", "This is an orange");
 
+        Article testBanana = new Article(testArticleDTOBanana, 1);
+        Article testTwoBananas = new Article(testArticleDTOBanana, 2);
+        Article testOrange = new Article(testArticleDTOOrange, 1);
+
+        instanceToTest.enterArticleToSale(testArticleDTOBanana, 1);        
         instanceToTest.enterArticleToSale(testArticleDTOOrange, 1);
+
+        assertTrue(instanceToTest.getArticleList().get(0).equals(testBanana) && 
+        instanceToTest.getArticleList().get(1).equals(testOrange));
+
         instanceToTest.enterArticleToSale(testArticleDTOBanana, 1);
 
-        
+        assertTrue(instanceToTest.getArticleList().get(0).equals(testTwoBananas) && 
+        instanceToTest.getArticleList().get(1).equals(testOrange));
     }
 }
