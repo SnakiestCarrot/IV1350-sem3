@@ -27,7 +27,6 @@ public class View {
      */
     public void runFakeView() {
         contr.requestNewSale();
-        printAfterIdentifierEntered(contr.enterArticleIdentifier(101), this.contr.getCurrentTotalSaleCost());
     }
     /**
      * Prints the details of an article and the current running total after an identifier is entered.
@@ -39,11 +38,5 @@ public class View {
         System.out.println("Article name: " + articleDTO.getName());
         System.out.println("Article price: " + articleDTO.getPrice());
         System.out.println("Running total: " + totalSaleCost);
-    }
-
-    private void enterArticleIdentifier (int identifier){
-        ArticleDTO artDTO = this.contr.enterArticleIdentifier(identifier);
-        
-
     }
 }

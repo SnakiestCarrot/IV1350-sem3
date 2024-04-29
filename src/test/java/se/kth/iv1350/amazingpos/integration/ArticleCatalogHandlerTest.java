@@ -34,7 +34,7 @@ public class ArticleCatalogHandlerTest {
 
     @Test
     public void testFetchArticleDTOisValid() {
-        ArticleDTO expectedOutput = new ArticleDTO(101, 2.99, 0.25, "Banana");
+        ArticleDTO expectedOutput = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
         ArticleDTO actualOutput = instanceToTest.fetchArticleDTO(101);
 
         assertTrue(actualOutput.equals(expectedOutput), "The two ArticleDTO objects do not match.");
@@ -42,7 +42,7 @@ public class ArticleCatalogHandlerTest {
 
     @Test
     public void testFetchArticleDTODifferentIdentifier() {
-        ArticleDTO expectedOutput = new ArticleDTO(102, 1.99, 0.25, "Orange");
+        ArticleDTO expectedOutput = new ArticleDTO(102, 1.99, 0.25, "Orange", "This is an orange");
         ArticleDTO actualOutput = instanceToTest.fetchArticleDTO(103);
 
         assertFalse(actualOutput.equals(expectedOutput), "The two ArticleDTO objects match.");

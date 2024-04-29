@@ -13,11 +13,12 @@ import java.util.ArrayList;
 public class ArticleCatalogHandler {
 
     private ArrayList<ArticleDTO> articleDTOList = new ArrayList<ArticleDTO>();
+    private int identifierOffset = 101;
 
     public ArticleCatalogHandler () {
-        articleDTOList.add(new ArticleDTO(101, 2.99, 0.25, "Banana"));
-        articleDTOList.add(new ArticleDTO(102, 1.99, 0.25, "Orange"));
-        articleDTOList.add(new ArticleDTO(103, 0.99, 0.25, "Apple"));
+        articleDTOList.add(new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana"));
+        articleDTOList.add(new ArticleDTO(102, 1.99, 0.25, "Orange", "This is an orange"));
+        articleDTOList.add(new ArticleDTO(103, 0.99, 0.25, "Apple", "This is an apple"));
     }
     
     private boolean checkValidArticle(int identifier) {
@@ -25,7 +26,7 @@ public class ArticleCatalogHandler {
     }
 
     private ArticleDTO fetchDTOFromFakeDatabase (int identifier) {
-        return this.articleDTOList.get(identifier-101);
+        return this.articleDTOList.get(identifier - identifierOffset);
     }
     
     public ArticleDTO fetchArticleDTO (int identifier) {

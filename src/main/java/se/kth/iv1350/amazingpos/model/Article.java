@@ -16,6 +16,7 @@ public class Article {
     private double price;
     private double vatRate;
     private String name;
+    private String articleDescription;
     private double quantity;
     
     public Article (ArticleDTO artDTO, double quantity) {
@@ -23,6 +24,7 @@ public class Article {
         this.price = artDTO.getPrice();
         this.vatRate = artDTO.getVatRate();
         this.name = artDTO.getName();
+        this.articleDescription = artDTO.getArticleDescription();
         this.quantity = quantity;
     }
 
@@ -31,9 +33,10 @@ public class Article {
         boolean priceMatch = this.getPrice() == articleToCompare.getPrice();
         boolean nameMatch = this.getName() == articleToCompare.getName();
         boolean vatRateMatch = this.getVatRate() == articleToCompare.getVatRate();
+        boolean descriptionMatch = this.articleDescription == articleToCompare.getArticleDescription();
         boolean quantityMatch = this.getQuantity() == articleToCompare.getQuantity();
 
-        return identifierMatch && priceMatch && nameMatch && vatRateMatch && quantityMatch;
+        return identifierMatch && priceMatch && nameMatch && vatRateMatch&& descriptionMatch && quantityMatch;
     }
 
     public int getIdentifier () {
@@ -52,12 +55,12 @@ public class Article {
         return this.name;
     }
 
-    public double getQuantity () {
-        return this.quantity;
+    public String getArticleDescription () {
+        return this.articleDescription;
     }
 
-    public void setQuantity (double quantityToSet) {
-        this.quantity = quantityToSet;
+    public double getQuantity () {
+        return this.quantity;
     }
 
     public void addQuantity (double quantityToAdd) {

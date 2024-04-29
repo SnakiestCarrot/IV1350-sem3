@@ -16,21 +16,24 @@ public class ArticleDTO {
     private double price;
     private double vatRate;
     private String name;
+    private String articleDescription;
     
-    public ArticleDTO (int identifier, double price, double vatRate, String name) {
+    public ArticleDTO (int identifier, double price, double vatRate, String name, String articleDescription) {
         this.identifier = identifier;
         this.price = price;
         this.vatRate = vatRate;
         this.name = name;
+        this.articleDescription = articleDescription;
     }
 
     public boolean equals (ArticleDTO articleDTOToCompare) {
         boolean identifierMatch = this.getIdentifier() == articleDTOToCompare.getIdentifier();
         boolean priceMatch = this.getPrice() == articleDTOToCompare.getPrice();
         boolean nameMatch = this.getName() == articleDTOToCompare.getName();
+        boolean descriptionMatch = this.getArticleDescription() == articleDTOToCompare.getArticleDescription();
         boolean vatRateMatch = this.getVatRate() == articleDTOToCompare.getVatRate();
 
-        return identifierMatch && priceMatch && nameMatch && vatRateMatch;
+        return identifierMatch && priceMatch && nameMatch && descriptionMatch && vatRateMatch;
     }
 
     
@@ -48,5 +51,9 @@ public class ArticleDTO {
     
     public String getName () {
         return this.name;
+    }
+
+    public String getArticleDescription () {
+        return this.articleDescription;
     }
 }

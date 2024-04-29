@@ -15,7 +15,7 @@ public class ArticleDTOTest {
 
         @BeforeEach
         public void setUp() {
-            instanceToTest = new ArticleDTO(101, 2.99, 0.25, "Banana");
+            instanceToTest = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
         }
         
         @AfterEach
@@ -25,7 +25,7 @@ public class ArticleDTOTest {
 
         @Test
         public void testEqualsIsTrue() {
-            ArticleDTO expectedOutput = new ArticleDTO(101, 2.99, 0.25, "Banana");
+            ArticleDTO expectedOutput = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
 
             assertTrue(instanceToTest.equals(expectedOutput), "The two ArticleDTO objects do not match.");
         }
@@ -33,7 +33,7 @@ public class ArticleDTOTest {
         @Test
         public void testEqualsIsFalse() {
             
-            ArticleDTO expectedOutput = new ArticleDTO(102, 1.99, 0.25, "Apple");
+            ArticleDTO expectedOutput = new ArticleDTO(102, 1.99, 0.25, "Apple", "This is an apple");
 
             assertFalse(instanceToTest.equals(expectedOutput), "The two ArticleDTO objects match.");
         }

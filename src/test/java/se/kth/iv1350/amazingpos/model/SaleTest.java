@@ -26,8 +26,8 @@ public class SaleTest {
     }
 
     @Test
-    public void testAddingNewArticleReflectsInArticleList() {
-        ArticleDTO testArticleDTO = new ArticleDTO(101, 2.99, 0.25, "Banana");
+    public void testEnterArticleToSale() {
+        ArticleDTO testArticleDTO = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
         Article testArticle = new Article(testArticleDTO, 1);
 
         instanceToTest.enterArticleToSale(testArticleDTO, 1);
