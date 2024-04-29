@@ -38,7 +38,7 @@ public class SaleTest {
 
     @Test
     public void testRepeatedArticleEntryUpdatesQuantityCorrectly() {
-        ArticleDTO testArticleDTO = new ArticleDTO(101, 2.99, 0.25, "Banana");
+        ArticleDTO testArticleDTO = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
         Article twoTestArticles = new Article(testArticleDTO, 2);
 
         instanceToTest.enterArticleToSale(testArticleDTO, 1);
@@ -50,8 +50,8 @@ public class SaleTest {
 
     @Test
     public void testAddingTwoUniqueItems() {
-        ArticleDTO testArticleDTOBanana = new ArticleDTO(101, 2.99, 0.25, "Banana");
-        ArticleDTO testArticleDTOOrange = new ArticleDTO(102, 1.99, 0.25, "Orange");
+        ArticleDTO testArticleDTOBanana = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
+        ArticleDTO testArticleDTOOrange = new ArticleDTO(102, 1.99, 0.25, "Orange", "This is an orange");
 
         instanceToTest.enterArticleToSale(testArticleDTOOrange, 1);
         instanceToTest.enterArticleToSale(testArticleDTOBanana, 1);
