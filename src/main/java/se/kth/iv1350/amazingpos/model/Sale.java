@@ -96,5 +96,6 @@ public class Sale {
             createArticleInList(artDTO, quantity);
         }
         updateSaleTotalCost();
+        updateTotalVATForSale();
     }
 }
