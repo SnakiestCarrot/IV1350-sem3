@@ -37,6 +37,6 @@ public class Controller {
     }
 
     public double getCurrentTotalSaleCost () {
-        return this.sale.getTotalSaleCost();
+        return this.sale.getTotalCost();
     }
 }

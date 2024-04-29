@@ -40,4 +40,10 @@ public class View {
         System.out.println("Article price: " + articleDTO.getPrice());
         System.out.println("Running total: " + totalSaleCost);
     }
+
+    private void enterArticleIdentifier (int identifier){
+        ArticleDTO artDTO = this.contr.enterArticleIdentifier(identifier);
+        
+
+    }
 }
