@@ -18,12 +18,22 @@ public class Article {
     private String name;
     private double quantity;
     
-    public Article (ArticleDTO artDTO, double amount) {
+    public Article (ArticleDTO artDTO, double quantity) {
         this.identifier = artDTO.getIdentifier();
         this.price = artDTO.getPrice();
         this.vatRate = artDTO.getVatRate();
         this.name = artDTO.getName();
         this.quantity = quantity;
+    }
+
+    public boolean equals (Article articleToCompare) {
+        boolean identifierMatch = this.getIdentifier() == articleToCompare.getIdentifier();
+        boolean priceMatch = this.getPrice() == articleToCompare.getPrice();
+        boolean nameMatch = this.getName() == articleToCompare.getName();
+        boolean vatRateMatch = this.getVatRate() == articleToCompare.getVatRate();
+        boolean quantityMatch = this.getQuantity() == articleToCompare.getQuantity();
+
+        return identifierMatch && priceMatch && nameMatch && vatRateMatch && quantityMatch;
     }
 
     public int getIdentifier () {

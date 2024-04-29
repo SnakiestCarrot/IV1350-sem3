@@ -43,11 +43,10 @@ public class SaleInformation {
                 return true;
             }
         }
-
         return false;
     }
 
-    private void addQuantityToArticleInList (Article articleToAdd, double quantity) {
+    private void addQuantityToArticleInList (ArticleDTO articleToAdd, double quantity) {
         for (int i = 0; i < articleList.size(); i++) {
             if (articleList.get(i).getIdentifier() == articleToAdd.getIdentifier()) {
                 articleList.get(i).addQuantity(quantity);
@@ -57,5 +56,41 @@ public class SaleInformation {
 
     private void createArticleInList (ArticleDTO artDTO, double quantity) {
         articleList.add(new Article(artDTO, quantity));
+    }
+
+    private void updateSaleTotalCost () {
+        double newTotalCost = 0;
+        for (int i = 0; i < articleList.size(); i++) {
+            newTotalCost += calculateArticleCost(articleList.get(i));
+        }
+
+        this.totalCost = newTotalCost;
+    }
+
+    private double calculateArticleCost (Article article) {
+        return article.getPrice() * article.getQuantity();
+    }
+
+    private double calculateArticleVAT (Article article) {
+        return calculateArticleCost(article) * article.getVatRate();
+    }
+
+    private void updateTotalVATForSale () {
+        double newTotalSaleVAT = 0;
+        for (int i = 0; i < articleList.size(); i++) {
+            newTotalSaleVAT += calculateArticleVAT(articleList.get(i));
+        }
+
+        this.totalSaleVAT = newTotalSaleVAT;
+    }
+
+    public void enterArticleToSaleInformation (ArticleDTO artDTO, double quantity) {
+        if (isArticleInSale(artDTO)) {
+            addQuantityToArticleInList(artDTO, quantity);
+        }
+        else {
+            createArticleInList(artDTO, quantity);
+        }
+        updateSaleTotalCost();
     }
 }

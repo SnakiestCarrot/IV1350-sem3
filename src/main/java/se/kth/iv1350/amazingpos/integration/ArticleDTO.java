@@ -4,6 +4,8 @@
  */
 package se.kth.iv1350.amazingpos.integration;
 
+import se.kth.iv1350.amazingpos.model.Article;
+
 /**
  * ArticleDTO is a class that should represent the data collected from the 
  * ArticleCatalog about individual articles. It is placeholder for now.
@@ -15,12 +17,22 @@ public class ArticleDTO {
     private double vatRate;
     private String name;
     
-    public ArticleDTO (int identifier) {
+    public ArticleDTO (int identifier, double price, double vatRate, String name) {
         this.identifier = identifier;
-        this.price = 2.99;
-        this.vatRate = 0.25;
-        this.name = "Banana";
+        this.price = price;
+        this.vatRate = vatRate;
+        this.name = name;
     }
+
+    public boolean equals (ArticleDTO articleDTOToCompare) {
+        boolean identifierMatch = this.getIdentifier() == articleDTOToCompare.getIdentifier();
+        boolean priceMatch = this.getPrice() == articleDTOToCompare.getPrice();
+        boolean nameMatch = this.getName() == articleDTOToCompare.getName();
+        boolean vatRateMatch = this.getVatRate() == articleDTOToCompare.getVatRate();
+
+        return identifierMatch && priceMatch && nameMatch && vatRateMatch;
+    }
+
     
     public int getIdentifier () {
         return this.identifier;
@@ -36,21 +48,5 @@ public class ArticleDTO {
     
     public String getName () {
         return this.name;
-    }
-    
-    public void setIdentifier (int identifierToSet) {
-        this.identifier = identifierToSet;
-    }
-    
-    public void setPrice (double priceToSet) {
-        this.price = priceToSet;
-    }
-    
-    public void setVatRate (double vatRateToSet) {
-        this.vatRate = vatRateToSet;
-    }
-    
-    public void setName (String nameToSet) {
-        this.name = nameToSet;
     }
 }
