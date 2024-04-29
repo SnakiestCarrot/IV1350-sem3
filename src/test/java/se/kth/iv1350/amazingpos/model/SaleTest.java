@@ -61,11 +61,11 @@ public class SaleTest {
         instanceToTest.enterArticleToSale(testArticleDTOOrange, 1);
 
         assertTrue(instanceToTest.getArticleList().get(0).equals(testBanana) && 
-        instanceToTest.getArticleList().get(1).equals(testOrange));
+        instanceToTest.getArticleList().get(1).equals(testOrange), "Did not correctly add unique articles to sale.");
 
         instanceToTest.enterArticleToSale(testArticleDTOBanana, 1);
 
         assertTrue(instanceToTest.getArticleList().get(0).equals(testTwoBananas) && 
-        instanceToTest.getArticleList().get(1).equals(testOrange));
+        instanceToTest.getArticleList().get(1).equals(testOrange), "Did not update article quantity when adding a previously entered item.");
     }
 }
