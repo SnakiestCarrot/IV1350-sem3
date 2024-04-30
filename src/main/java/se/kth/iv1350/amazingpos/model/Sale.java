@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import se.kth.iv1350.amazingpos.integration.ArticleDTO;
 
 /**
- * SaleInformation is responsible for storing information related to the transaction.
- * @author caspt
+ * Sale is responsible for storing information related to the transaction.
+ * It holds details about the cost of the transaction, the time at which it was initiated, 
+ * which items are involved, the total sale VAT, the payment from the customer and the change to be returned.
  */
 public class Sale {
     private double totalCost;
@@ -17,6 +18,9 @@ public class Sale {
     private double change;
     private ArrayList<Article> articleList = new ArrayList<Article>();
     
+    /**
+     * makes a sale object :)
+     */
     public Sale() {
         setSaleTime();
     }
@@ -104,6 +108,13 @@ public class Sale {
         }
         return null;
     }
+
+    /**
+     * enterArticleToSale takes an ArticleDTO and a quantity to update cost and VAT for the sale.
+     * @param artDTO artDTO is a DTO containing details about the article, such as name, price, vat rate, etc.
+     * @param quantity quantity represents how many of each articles are to be added to the sale.
+     * @return
+     */
 
     public SaleStatusDTO enterArticleToSale (ArticleDTO artDTO, double quantity) {
         if (isArticleInSale(artDTO)) {

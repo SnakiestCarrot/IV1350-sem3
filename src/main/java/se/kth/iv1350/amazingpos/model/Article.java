@@ -18,6 +18,13 @@ public class Article {
     private String name;
     private String articleDescription;
     private double quantity;
+
+    /**
+     * A constructor method that makes an Article object. Article objects hold the same information
+     * as an ArticleDTO, but include a quantity variable. 
+     * @param artDTO The DTO you are appending a quantity to.
+     * @param quantity The quantity you are adding to the DTO.
+     */
     
     public Article (ArticleDTO artDTO, double quantity) {
         this.identifier = artDTO.getIdentifier();
@@ -28,6 +35,11 @@ public class Article {
         this.quantity = quantity;
     }
 
+    /**
+     * The equals method is used for testing purposes, to ensure two articles are equal.
+     * @param articleToCompare The article object you are comparing with.
+     * @return
+     */
     public boolean equals (Article articleToCompare) {
         boolean identifierMatch = this.getIdentifier() == articleToCompare.getIdentifier();
         boolean priceMatch = this.getPrice() == articleToCompare.getPrice();
