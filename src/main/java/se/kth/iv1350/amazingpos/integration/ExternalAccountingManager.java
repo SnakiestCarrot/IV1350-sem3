@@ -14,6 +14,14 @@ public class ExternalAccountingManager {
     private double funds = 9999;
 
     public void updateAccountingSystem (double saleTotalCost) {
+        // vill vi ha inputsanering?
+        if (saleTotalCost < 0) {
+            throw new IllegalArgumentException("Sale total cost cannot be negative.");
+        }
         this.funds = this.funds + saleTotalCost;
+    }
+
+    public double getFunds() {
+        return this.funds;
     }
 }
