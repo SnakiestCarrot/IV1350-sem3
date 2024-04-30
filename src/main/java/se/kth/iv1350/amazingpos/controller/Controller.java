@@ -45,7 +45,14 @@ public class Controller {
         return this.sale.getTotalCost();
     }
 
-    public Sale requestEndOfSale (double payment) {
-        return this.sale.endSale(payment);
+    public void registerPayment (double payment) {
+        this.sale.registerFinalPayment(payment);
+
+        accountingManager.updateAccountingSystem(this.sale.getTotalCost());
+        catalogHandler.updateInventorySystem(this.sale.getArticleList());
+    }
+
+    public Sale getSale () {
+        return this.sale;
     }
 }

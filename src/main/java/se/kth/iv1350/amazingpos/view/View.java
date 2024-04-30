@@ -68,10 +68,14 @@ public class View {
     }
 
     private void endSaleRequest (double payment) {
-        Sale sale = contr.requestEndOfSale(payment);
-
-        System.out.println("Total cost (incl VAT): " + sale.getTotalCost());
-        System.out.println();
-
+        System.out.println("Total cost (incl VAT): " + contr.getCurrentTotalSaleCost());
     }
+
+    private void registerCustomerPayment (double payment) {
+        contr.registerPayment(payment);
+
+        System.out.println("Customer pays " + payment + " SEK");
+    }
+
+
 }

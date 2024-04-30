@@ -78,4 +78,8 @@ public class Article {
     public void addQuantity (double quantityToAdd) {
         this.quantity += quantityToAdd;
     }
+
+    public void subtractQuantity (double quantityToSubtract) {
+        this.quantity -= quantityToSubtract;
+    }
 }

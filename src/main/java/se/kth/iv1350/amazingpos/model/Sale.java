@@ -128,9 +128,8 @@ public class Sale {
         return new SaleStatusDTO (getArticleInList(artDTO), this.totalCost, this.totalSaleVAT);
     }
 
-    public Sale endSale (double payment) {
+    public void registerFinalPayment (double payment) {
         this.payment = payment;
         this.change = payment - totalCost;
-        return this;
     }
 }
