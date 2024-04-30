@@ -68,4 +68,33 @@ public class SaleTest {
         assertTrue(instanceToTest.getArticleList().get(0).equals(testTwoBananas) && 
         instanceToTest.getArticleList().get(1).equals(testOrange), "Did not update article quantity when adding a previously entered item.");
     }
+
+    @Test
+    public void testCalculateTotalCostForMultipleItems() {
+        ArticleDTO testArticleDTOBanana = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
+        ArticleDTO testArticleDTOOrange = new ArticleDTO(102, 1.99, 0.25, "Orange", "This is an orange");
+
+        instanceToTest.enterArticleToSale(testArticleDTOBanana, 2);
+
+
+        assertTrue(instanceToTest.getTotalCost() == testArticleDTOBanana.getPrice() * 2);
+
+        instanceToTest.enterArticleToSale(testArticleDTOOrange, 1);
+
+        assertTrue(instanceToTest.getTotalCost() == testArticleDTOBanana.getPrice() * 2 + testArticleDTOOrange.getPrice());
+    }
+
+    @Test
+    public void testCalculateTotalVATForMultipleArticles() {
+        ArticleDTO testArticleDTOBanana = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
+        ArticleDTO testArticleDTOOrange = new ArticleDTO(102, 1.99, 0.25, "Orange", "This is an orange");
+
+        instanceToTest.enterArticleToSale(testArticleDTOBanana, 2);
+
+        assertTrue(instanceToTest.getTotalSaleVAT() == (testArticleDTOBanana.getVatRate() * testArticleDTOBanana.getPrice()) * 2);
+
+        instanceToTest.enterArticleToSale(testArticleDTOOrange, 1);
+
+        assertTrue(instanceToTest.getTotalSaleVAT() == (testArticleDTOBanana.getVatRate() * testArticleDTOBanana.getPrice()) * 2 + (testArticleDTOOrange.getVatRate() * testArticleDTOOrange.getPrice()));
+    }
 }
