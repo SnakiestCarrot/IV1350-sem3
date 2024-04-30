@@ -37,6 +37,14 @@ public class Sale {
         return this.totalSaleVAT;
     }
 
+    public double getPayment () {
+        return this.payment;
+    }
+
+    public double getChange () {
+        return this.change;
+    }
+
     public ArrayList<Article> getArticleList () {
         return this.articleList;
     }

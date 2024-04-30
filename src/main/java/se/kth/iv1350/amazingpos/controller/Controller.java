@@ -36,8 +36,9 @@ public class Controller {
         return catalogHandler.fetchArticleDTO(identifier);
     }
 
-    public void enterArticle (int identifier, double quantity) {
+    public Sale enterArticle (int identifier, double quantity) {
         this.sale.enterArticleToSale(fetchArticleDTO(identifier), quantity);
+        return this.sale;
     }
 
     public double getCurrentTotalSaleCost () {

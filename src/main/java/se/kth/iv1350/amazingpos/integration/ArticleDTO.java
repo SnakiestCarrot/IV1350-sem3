@@ -4,7 +4,7 @@
  */
 package se.kth.iv1350.amazingpos.integration;
 
-import se.kth.iv1350.amazingpos.model.Article;
+
 
 /**
  * ArticleDTO is a class that should represent the data collected from the 
