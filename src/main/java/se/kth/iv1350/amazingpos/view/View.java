@@ -2,6 +2,7 @@ package se.kth.iv1350.amazingpos.view;
 
 import se.kth.iv1350.amazingpos.controller.Controller;
 import se.kth.iv1350.amazingpos.model.Article;
+import se.kth.iv1350.amazingpos.model.Sale;
 import se.kth.iv1350.amazingpos.model.SaleStatusDTO;
 
 /**
@@ -28,6 +29,7 @@ public class View {
     public void runFakeView() {
         contr.requestNewSale();
         enterArticleIdentifier(101, 1);
+        endSaleRequest(100.0);
     }
     /**
      * Prints the details of an article and the current running total after an identifier is entered.
@@ -63,5 +65,13 @@ public class View {
         SaleStatusDTO saleStatus = contr.enterArticle(identifier, quantity);
 
         printAfterIdentifierEntered(saleStatus);
+    }
+
+    private void endSaleRequest (double payment) {
+        Sale sale = contr.requestEndOfSale(payment);
+
+        System.out.println("Total cost (incl VAT): " + sale.getTotalCost());
+        System.out.println();
+
     }
 }

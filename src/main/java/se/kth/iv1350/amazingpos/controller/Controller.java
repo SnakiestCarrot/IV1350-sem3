@@ -44,4 +44,8 @@ public class Controller {
     public double getCurrentTotalSaleCost () {
         return this.sale.getTotalCost();
     }
+
+    public Sale requestEndOfSale (double payment) {
+        return this.sale.endSale(payment);
+    }
 }
