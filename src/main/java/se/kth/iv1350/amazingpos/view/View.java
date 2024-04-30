@@ -50,6 +50,7 @@ public class View {
         
         System.out.println("Add " + articleQuantity + " with item id " + articleID);
         System.out.println("Item ID: " + articleID);
+        System.out.println("Item name: " + articleName);
         System.out.println("Item cost: " + articleCost + " SEK");
         System.out.println("VAT: " + (articleVAT*100) + "%");
         System.out.println("Item description: " + articleDescription);
