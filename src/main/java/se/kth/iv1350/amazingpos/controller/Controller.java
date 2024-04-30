@@ -2,6 +2,7 @@ package se.kth.iv1350.amazingpos.controller;
 
 import se.kth.iv1350.amazingpos.integration.*;
 import se.kth.iv1350.amazingpos.model.Sale;
+import se.kth.iv1350.amazingpos.model.SaleStatusDTO;
 
 /**
  * This is the application's controller, all method calls from view go through this class.
@@ -36,9 +37,8 @@ public class Controller {
         return catalogHandler.fetchArticleDTO(identifier);
     }
 
-    public Sale enterArticle (int identifier, double quantity) {
-        this.sale.enterArticleToSale(fetchArticleDTO(identifier), quantity);
-        return this.sale;
+    public SaleStatusDTO enterArticle (int identifier, double quantity) {
+        return this.sale.enterArticleToSale(fetchArticleDTO(identifier), quantity);
     }
 
     public double getCurrentTotalSaleCost () {
