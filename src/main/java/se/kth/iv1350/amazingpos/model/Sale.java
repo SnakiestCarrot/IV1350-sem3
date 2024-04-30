@@ -96,7 +96,16 @@ public class Sale {
         this.totalSaleVAT = newTotalSaleVAT;
     }
 
-    public void enterArticleToSale (ArticleDTO artDTO, double quantity) {
+    private Article getArticleInList (ArticleDTO artDTO) {
+        for (int i = 0; i < articleList.size(); i++) {
+            if (artDTO.getIdentifier() == articleList.get(i).getIdentifier()) {
+                return articleList.get(i);
+            }
+        }
+        return null;
+    }
+
+    public SaleStatusDTO enterArticleToSale (ArticleDTO artDTO, double quantity) {
         if (isArticleInSale(artDTO)) {
             addQuantityToArticleInList(artDTO, quantity);
         }
@@ -105,5 +114,6 @@ public class Sale {
         }
         updateSaleTotalCost();
         updateTotalVATForSale();
+        return new SaleStatusDTO (getArticleInList(artDTO), this.totalCost, this.totalSaleVAT);
     }
 }
