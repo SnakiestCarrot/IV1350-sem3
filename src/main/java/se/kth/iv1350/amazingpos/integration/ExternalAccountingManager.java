@@ -5,6 +5,7 @@
 package se.kth.iv1350.amazingpos.integration;
 
 import se.kth.iv1350.amazingpos.model.Sale;
+import java.util.ArrayList;
 
 /**
  * ExternalAccountingManager will represent the system that handles the payment 
@@ -13,7 +14,11 @@ import se.kth.iv1350.amazingpos.model.Sale;
 public class ExternalAccountingManager {
     private double funds = 9999;
 
-    public void updateAccountingSystem (double saleTotalCost) {
-        this.funds = this.funds + saleTotalCost;
+    private ArrayList<Sale> saleList = new ArrayList<Sale>();
+
+    public void updateAccountingSystem (Sale currentSale) {
+        this.funds = this.funds + currentSale.getTotalCost();
+
+        saleList.add(currentSale);
     }
 }

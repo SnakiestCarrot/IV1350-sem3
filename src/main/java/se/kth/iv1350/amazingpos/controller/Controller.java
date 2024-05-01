@@ -48,7 +48,10 @@ public class Controller {
     public void registerPayment (double payment) {
         this.sale.registerFinalPayment(payment);
 
-        accountingManager.updateAccountingSystem(this.sale.getTotalCost());
+        accountingManager.updateAccountingSystem(this.sale);
+        System.out.println("Sent sale info to external accounting system.");
+        System.out.println();
+
         catalogHandler.updateInventorySystem(this.sale.getArticleList());
     }
 
