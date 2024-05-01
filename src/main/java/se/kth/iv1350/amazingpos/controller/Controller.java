@@ -1,6 +1,9 @@
 package se.kth.iv1350.amazingpos.controller;
 
+import java.util.ArrayList;
+
 import se.kth.iv1350.amazingpos.integration.*;
+import se.kth.iv1350.amazingpos.model.Article;
 import se.kth.iv1350.amazingpos.model.Sale;
 import se.kth.iv1350.amazingpos.model.SaleStatusDTO;
 
@@ -48,11 +51,24 @@ public class Controller {
     public void registerPayment (double payment) {
         this.sale.registerFinalPayment(payment);
 
-        accountingManager.updateAccountingSystem(this.sale);
+        accountingManager.updateAccountingSystem(this.sale.getTotalCost());
         System.out.println("Sent sale info to external accounting system.");
         System.out.println();
 
         catalogHandler.updateInventorySystem(this.sale.getArticleList());
+        printArticleListSentToInventory(this.sale.getArticleList());
+    }
+
+    private void printArticleListSentToInventory (ArrayList<Article> articleList) {
+        for (int i = 0; i < articleList.size(); i++) {
+            int identifier = articleList.get(i).getIdentifier();
+            double quantity = articleList.get(i).getQuantity();
+            System.out.println(
+                "Told external inventory system to decrease inventory quantity of item \n" 
+            +     identifier + " by " + quantity
+            );
+        }
+        
     }
 
     public Sale getSale () {
