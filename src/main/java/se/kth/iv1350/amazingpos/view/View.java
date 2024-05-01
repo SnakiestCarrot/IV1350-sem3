@@ -29,7 +29,8 @@ public class View {
     public void runFakeView() {
         contr.requestNewSale();
         enterArticleIdentifier(101, 1);
-        endSaleRequest(100.0);
+        endSaleRequest();
+        registerCustomerPayment(100.0);
     }
     /**
      * Prints the details of an article and the current running total after an identifier is entered.
@@ -67,7 +68,7 @@ public class View {
         printAfterIdentifierEntered(saleStatus);
     }
 
-    private void endSaleRequest (double payment) {
+    private void endSaleRequest () {
         System.out.println("Total cost (incl VAT): " + contr.getCurrentTotalSaleCost());
     }
 
@@ -75,6 +76,10 @@ public class View {
         contr.registerPayment(payment);
 
         System.out.println("Customer pays " + payment + " SEK");
+    }
+
+    private void printChangeToCustomer (double change) {
+        System.out.println("Change to give to the customer: " + change);
     }
 
 

@@ -33,7 +33,7 @@ public class Sale {
         return this.totalCost;
     }
     
-    LocalDateTime getSaleTime () {
+    public LocalDateTime getSaleTime () {
         return this.saleTime;
     }
     
