@@ -53,18 +53,14 @@ public class ReceiptPrinterTest {
     }
     @Test
     public void testReceiptPrintOutWithMultipleItems() {
-        // Setup test articles
         ArticleDTO testArticleDTOBanana = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
         ArticleDTO testArticleDTOOrange = new ArticleDTO(102, 1.99, 0.25, "Orange", "This is an orange");
     
-        // Enter articles into the sale
         testSaleInstance.enterArticleToSale(testArticleDTOBanana, 1);
         testSaleInstance.enterArticleToSale(testArticleDTOOrange, 2);
     
-        // Print the receipt
         testPrinter.printReceipt(testSaleInstance);
     
-        // Capture the output and perform assertions
         String output = printOutBuffer.toString();
         assertTrue(output.contains("Banana"), "Receipt should contain the item name 'Banana'.");
         assertTrue(output.contains("2.99"), "Receipt should contain the price for 'Banana'.");
