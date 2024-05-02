@@ -29,7 +29,7 @@ public class View {
      * Prints out receipt at the end.
      */
     public void runFakeView() {
-        contr.requestNewSale();
+        requestNewSale();
         enterArticleIdentifier(101, 5);
         enterArticleIdentifier(101, 1);
         enterArticleIdentifier(102, 2);
@@ -37,6 +37,10 @@ public class View {
         registerCustomerPayment(100.0);
         printReceiptRequest();
         printChangeToCustomer(contr.getSale().getChange());
+    }
+
+    private void requestNewSale() {
+        contr.requestNewSale();
     }
     /**
      * Prints the details of an article and the current running total after an identifier is entered.
@@ -56,15 +60,17 @@ public class View {
         double saleCost = saleStatus.getCurrentTotalSaleCost();
         double saleVAT = saleStatus.getCurrentTotalVAT();
         
-        System.out.println("Add " + quantity + " items with item id " + articleID);
+        System.out.println("");
+        System.out.printf("Add %.0f items with item id %d\n", quantity, articleID);
         System.out.println("Item ID: " + articleID);
         System.out.println("Item name: " + articleName);
-        System.out.println("Item cost: " + articleCost + " SEK");
-        System.out.println("VAT: " + (articleVAT*100) + "%");
+        System.out.printf("Item cost: %.2f SEK\n", articleCost);
+        System.out.printf("VAT: %.2f", + (articleVAT*100));
+        System.out.print("%\n");
         System.out.println("Item description: " + articleDescription);
         System.out.println("");
-        System.out.println("Total cost (incl VAT): " + saleCost);
-        System.out.println("Total VAT: " + saleVAT);
+        System.out.printf("Total cost (incl VAT): %.2f\n", saleCost);
+        System.out.printf("Total VAT: %.2f\n", saleVAT);
     }
 
     private void enterArticleIdentifier (int identifier, double quantity) {
@@ -75,11 +81,11 @@ public class View {
 
     private void endSaleRequest () {
         System.out.println("\nEnd Sale: ");
-        System.out.println("Total cost (incl VAT): " + contr.getCurrentTotalSaleCost());
+        System.out.printf("Total cost (incl VAT): %.2f\n", contr.getCurrentTotalSaleCost());
     }
 
     private void registerCustomerPayment (double payment) {
-        System.out.println("\nCustomer pays " + payment + " SEK: ");
+        System.out.printf("\nCustomer pays %.2f SEK:\n", payment);
 
         contr.registerPayment(payment);
         System.out.println("Sent sale info to external accounting system.");
@@ -88,7 +94,7 @@ public class View {
     }
 
     private void printChangeToCustomer (double change) {
-        System.out.println("Change to give to the customer: " + change);
+        System.out.printf("Change to give to the customer: %.2f", change);
     }
 
     private void printReceiptRequest() {
@@ -99,10 +105,9 @@ public class View {
         for (int i = 0; i < articleList.size(); i++) {
             int identifier = articleList.get(i).getIdentifier();
             double quantity = articleList.get(i).getQuantity();
-            System.out.println(
-                "Told external inventory system to decrease inventory quantity of item \n" 
-            +     identifier + " by " + quantity
-            );
+            System.out.printf(
+                "Told external inventory system to decrease inventory quantity of item \n%d by %.0f\n" 
+                    ,identifier, quantity);
         }
         
     }
