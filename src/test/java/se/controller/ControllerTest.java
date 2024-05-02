@@ -21,7 +21,6 @@ public class ControllerTest {
     private ReceiptPrinter testPrinter;
     private ExternalAccountingManager testAccMan;
     private ArticleCatalogHandler testCatHan;
-    private Sale testSale;
 
     @BeforeEach
     public void setUp() {
@@ -32,9 +31,8 @@ public class ControllerTest {
         testAccMan = new ExternalAccountingManager();
         testCatHan = new ArticleCatalogHandler();
 
-        testSale = new Sale();
-
         testController = new Controller(testPrinter, testAccMan, testCatHan);
+        testController.requestNewSale();
     }
 
     @AfterEach
@@ -53,11 +51,7 @@ public class ControllerTest {
     public void testEnterArticle() {
         int identifier = 101;
         int quantity = 2;
-
-        ArticleDTO testArticleDTOBanana = new ArticleDTO(identifier, 2.99, 0.25, "Banana", "This is a banana");
         
-        testSale.enterArticleToSale(testArticleDTOBanana, quantity);
-
         SaleStatusDTO saleStatus = testController.enterArticle(identifier, quantity);
         
         assertNotNull(saleStatus);
