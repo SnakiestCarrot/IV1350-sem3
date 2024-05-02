@@ -28,7 +28,7 @@ public class View {
      */
     public void runFakeView() {
         contr.requestNewSale();
-        enterArticleIdentifier(101, 1);
+        enterArticleIdentifier(101, 5);
         endSaleRequest();
         registerCustomerPayment(100.0);
         printReceiptRequest();
@@ -52,15 +52,16 @@ public class View {
         double saleCost = saleStatus.getCurrentTotalSaleCost();
         double saleVAT = saleStatus.getCurrentTotalVAT();
         
-        System.out.println("Add " + articleQuantity + " with item id " + articleID);
+        System.out.println("");
+        System.out.println("Add " + articleQuantity + " items with item id " + articleID);
         System.out.println("Item ID: " + articleID);
         System.out.println("Item name: " + articleName);
         System.out.println("Item cost: " + articleCost + " SEK");
         System.out.println("VAT: " + (articleVAT*100) + "%");
         System.out.println("Item description: " + articleDescription);
         System.out.println("");
-        System.out.println("Total cost (incl VAT): " + saleCost);
-        System.out.println("Total VAT: " + saleVAT);
+        System.out.printf("Total cost (incl VAT): %5.2f%n\n", saleCost);
+        System.out.printf("Total VAT: %5.2f%n\n", saleVAT);
     }
 
     private void enterArticleIdentifier (int identifier, double quantity) {
@@ -71,7 +72,7 @@ public class View {
 
     private void endSaleRequest () {
         System.out.println("\nEnd Sale: ");
-        System.out.println("Total cost (incl VAT): " + contr.getCurrentTotalSaleCost());
+        System.out.printf("Total cost (incl VAT): %5.2f%n\n", contr.getCurrentTotalSaleCost());
     }
 
     private void registerCustomerPayment (double payment) {

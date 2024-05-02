@@ -18,11 +18,10 @@ public class ReceiptPrinter {
         for (int i = 0; i < sale.getArticleList().size(); i++) {
             printArticleInReceipt(sale.getArticleList().get(i));
         }
+        System.out.printf("Total: \t\t%5.2f%n", sale.getTotalCost());
+        System.out.printf("VAT: \t\t%5.2f%n", sale.getTotalSaleVAT());
         System.out.println("");
-        System.out.println("Total: \t" + sale.getTotalCost());
-        System.out.println("VAT: \t" + sale.getTotalSaleVAT());
-        System.out.println("");
-        System.out.println("Cash: \t" + sale.getPayment());
+        System.out.printf("Cash: \t \t%5.2f%n", sale.getPayment());
         System.out.println("Change: \t" + sale.getChange());
         System.out.println("------------------ End receipt ---------------------");
     }
@@ -32,7 +31,9 @@ public class ReceiptPrinter {
         double price = article.getPrice();
         String name = article.getName();
         double totalPriceForArticle = calculateTotalArticleCost(article);
-        System.out.println(name + "\t" + quantity + "x" + price + "\t" + totalPriceForArticle);
+        System.out.print(name + "\t" + quantity + "x" + price + "\t");
+        System.out.printf("%5.2f%n\n", totalPriceForArticle);
+        
     }
 
     private double calculateTotalArticleCost (Article article) {
