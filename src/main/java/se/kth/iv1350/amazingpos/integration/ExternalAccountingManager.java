@@ -20,9 +20,6 @@ public class ExternalAccountingManager {
      * @param saleTotalCost
      */
     public void updateAccountingSystem (double saleTotalCost) {
-        if (saleTotalCost < 0) {
-            throw new IllegalArgumentException("Sale total cost cannot be negative.");
-        }
         this.funds = this.funds + saleTotalCost;
     }
 
