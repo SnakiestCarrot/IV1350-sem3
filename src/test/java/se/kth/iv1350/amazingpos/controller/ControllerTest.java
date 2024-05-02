@@ -1,4 +1,4 @@
-package se.controller;
+package se.kth.iv1350.amazingpos.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
