@@ -6,6 +6,8 @@ package se.kth.iv1350.amazingpos.integration;
 
 import se.kth.iv1350.amazingpos.model.Article;
 import se.kth.iv1350.amazingpos.model.Sale;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * ReceiptPrinter takes in SaleInformation and uses it to print a receipt at the end of the sale.
@@ -13,7 +15,7 @@ import se.kth.iv1350.amazingpos.model.Sale;
 public class ReceiptPrinter {
     public void printReceipt (Sale sale) {
         System.out.println("------------------ Begin receipt -------------------");
-        System.out.println("Time of Sale: " + sale.getSaleTime());
+        System.out.println(sale.getSaleTime().format(DateTimeFormatter.ofPattern("d MMM uuuu HH:mm:ss")));
         System.out.println("");
         for (int i = 0; i < sale.getArticleList().size(); i++) {
             printArticleInReceipt(sale.getArticleList().get(i));
@@ -32,7 +34,7 @@ public class ReceiptPrinter {
         double price = article.getPrice();
         String name = article.getName();
         double totalPriceForArticle = calculateTotalArticleCost(article);
-        System.out.println(name + "\t" + quantity + "x" + price + "\t" + totalPriceForArticle);
+        System.out.println(name + "\t" + quantity + " x " + price + "\t" + totalPriceForArticle);
     }
 
     private double calculateTotalArticleCost (Article article) {
