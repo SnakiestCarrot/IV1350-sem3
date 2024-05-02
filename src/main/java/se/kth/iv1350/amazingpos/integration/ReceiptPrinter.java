@@ -24,7 +24,7 @@ public class ReceiptPrinter {
         System.out.printf("VAT: \t\t%5.2f%n", sale.getTotalSaleVAT());
         System.out.println("");
         System.out.printf("Cash: \t \t%5.2f%n", sale.getPayment());
-        System.out.println("Change: \t" + sale.getChange());
+        System.out.printf("Change: \t %5.2f\n",  sale.getChange());
         System.out.println("------------------ End receipt ---------------------");
     }
 
@@ -33,7 +33,8 @@ public class ReceiptPrinter {
         double price = article.getPrice();
         String name = article.getName();
         double totalPriceForArticle = calculateTotalArticleCost(article);
-        System.out.print(name + "\t" + quantity + "x" + price + "\t");
+        System.out.print(name);
+        System.out.printf(" %.0f x %.2f\t", quantity, price);
         System.out.printf("%5.2f%n\n", totalPriceForArticle);
         
     }
