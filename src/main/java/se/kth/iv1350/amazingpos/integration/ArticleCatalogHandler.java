@@ -7,7 +7,6 @@ package se.kth.iv1350.amazingpos.integration;
 import java.util.ArrayList;
 
 import se.kth.iv1350.amazingpos.model.Article;
-import se.kth.iv1350.amazingpos.model.Sale;
 
 /**
  * Handles operations related to fetching article data transfer objects (DTOs) based on article identifiers.

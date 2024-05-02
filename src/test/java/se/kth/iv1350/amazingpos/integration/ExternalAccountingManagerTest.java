@@ -1,17 +1,11 @@
 package se.kth.iv1350.amazingpos.integration;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import se.kth.iv1350.amazingpos.integration.ExternalAccountingManager;
 
 public class ExternalAccountingManagerTest {
     private ExternalAccountingManager testAccountingManager;

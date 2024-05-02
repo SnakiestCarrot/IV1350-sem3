@@ -1,6 +1,4 @@
 package se.kth.iv1350.amazingpos.integration;
-import se.kth.iv1350.amazingpos.integration.ArticleDTO;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

@@ -1,16 +1,12 @@
 package se.kth.iv1350.amazingpos.model;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import se.kth.iv1350.amazingpos.integration.ArticleDTO;
-import se.kth.iv1350.amazingpos.model.Sale;
 
 public class SaleTest {
     private Sale instanceToTest;

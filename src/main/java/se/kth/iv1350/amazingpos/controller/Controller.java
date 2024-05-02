@@ -1,9 +1,6 @@
 package se.kth.iv1350.amazingpos.controller;
 
-import java.util.ArrayList;
-
 import se.kth.iv1350.amazingpos.integration.*;
-import se.kth.iv1350.amazingpos.model.Article;
 import se.kth.iv1350.amazingpos.model.Sale;
 import se.kth.iv1350.amazingpos.model.SaleStatusDTO;
 

@@ -9,10 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import se.kth.iv1350.amazingpos.integration.ReceiptPrinter;
 import se.kth.iv1350.amazingpos.model.Sale;
-import se.kth.iv1350.amazingpos.model.Article;
-import se.kth.iv1350.amazingpos.integration.ArticleDTO;
 
 
 

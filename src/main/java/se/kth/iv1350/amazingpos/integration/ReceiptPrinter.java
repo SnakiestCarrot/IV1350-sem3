@@ -6,7 +6,6 @@ package se.kth.iv1350.amazingpos.integration;
 
 import se.kth.iv1350.amazingpos.model.Article;
 import se.kth.iv1350.amazingpos.model.Sale;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**

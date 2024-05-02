@@ -4,19 +4,12 @@
  */
 package se.kth.iv1350.amazingpos.integration;
 
-import org.junit.jupiter.api.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-import se.kth.iv1350.amazingpos.integration.ArticleCatalogHandler;
-import se.kth.iv1350.amazingpos.integration.ArticleDTO;
-import se.kth.iv1350.amazingpos.model.Article;
 
 
 

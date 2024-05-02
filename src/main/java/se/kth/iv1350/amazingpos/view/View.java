@@ -1,9 +1,9 @@
 package se.kth.iv1350.amazingpos.view;
 
 import java.util.ArrayList;
+
 import se.kth.iv1350.amazingpos.controller.Controller;
 import se.kth.iv1350.amazingpos.model.Article;
-import se.kth.iv1350.amazingpos.model.Sale;
 import se.kth.iv1350.amazingpos.model.SaleStatusDTO;
 
 /**
@@ -36,6 +36,7 @@ public class View {
         endSaleRequest();
         registerCustomerPayment(100.0);
         printReceiptRequest();
+        printChangeToCustomer(contr.getSale().getChange());
     }
     /**
      * Prints the details of an article and the current running total after an identifier is entered.
