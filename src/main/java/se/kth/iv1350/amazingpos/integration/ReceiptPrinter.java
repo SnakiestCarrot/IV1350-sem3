@@ -33,10 +33,13 @@ public class ReceiptPrinter {
         double price = article.getPrice();
         String name = article.getName();
         double totalPriceForArticle = calculateTotalArticleCost(article);
+<<<<<<< HEAD
         System.out.print(name);
         System.out.printf(" %.0f x %.2f\t", quantity, price);
+=======
+        System.out.print(name + "\t" + quantity + " x " + price + "\t");
+>>>>>>> 99a181f4513abab9bd88c2ef493d4a71d650fc5a
         System.out.printf("%5.2f%n\n", totalPriceForArticle);
-        
     }
 
     private double calculateTotalArticleCost (Article article) {
