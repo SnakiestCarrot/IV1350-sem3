@@ -66,7 +66,7 @@ public class ReceiptPrinterTest {
         assertTrue(output.contains("2.99"), "Receipt should contain the price for 'Banana'.");
         assertTrue(output.contains("Orange"), "Receipt should contain the item name 'Orange'.");
         assertTrue(output.contains("1.99"), "Receipt should contain the price for 'Orange'.");
-        assertTrue(output.contains("2.0x1.99"), "Receipt should contain the quantity and price for 'Orange'.");
+        assertTrue(output.contains("2 x 1.99"), "Receipt should contain the quantity and price for 'Orange'.");
         assertTrue(output.contains("------------------ Begin receipt -------------------"), "Receipt should start with header.");
         assertTrue(output.contains("------------------ End receipt ---------------------"), "Receipt should end with footer.");
     }
