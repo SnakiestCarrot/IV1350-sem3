@@ -29,7 +29,7 @@ public class View {
      * Prints out receipt at the end.
      */
     public void runFakeView() {
-        contr.requestNewSale();
+        requestNewSale();
         enterArticleIdentifier(101, 5);
         enterArticleIdentifier(101, 1);
         enterArticleIdentifier(102, 2);
@@ -37,6 +37,10 @@ public class View {
         registerCustomerPayment(100.0);
         printReceiptRequest();
         printChangeToCustomer(contr.getSale().getChange());
+    }
+
+    private void requestNewSale() {
+        contr.requestNewSale();
     }
     /**
      * Prints the details of an article and the current running total after an identifier is entered.
