@@ -41,7 +41,7 @@ public class View {
      * @param articleDTO articleDTO contains details like name, price, vat rate and identifier.
      * @param totalSaleCost totalSaleCost represents the current state of the sum of all registered articles so far.
      */
-    private void printAfterIdentifierEntered (SaleStatusDTO saleStatus) {
+    private void printAfterIdentifierEntered (SaleStatusDTO saleStatus, double quantity) {
         Article article = saleStatus.getCurrentArticle();
         
         double articleQuantity = article.getQuantity();
@@ -55,7 +55,7 @@ public class View {
         double saleVAT = saleStatus.getCurrentTotalVAT();
         
         System.out.println("");
-        System.out.println("Add " + articleQuantity + " items with item id " + articleID);
+        System.out.println("Add " + quantity + " items with item id " + articleID);
         System.out.println("Item ID: " + articleID);
         System.out.println("Item name: " + articleName);
         System.out.println("Item cost: " + articleCost + " SEK");
@@ -69,7 +69,7 @@ public class View {
     private void enterArticleIdentifier (int identifier, double quantity) {
         SaleStatusDTO saleStatus = contr.enterArticle(identifier, quantity);
 
-        printAfterIdentifierEntered(saleStatus);
+        printAfterIdentifierEntered(saleStatus, quantity);
     }
 
     private void endSaleRequest () {
