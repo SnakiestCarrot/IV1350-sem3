@@ -74,4 +74,8 @@ public class Controller {
     public Sale getSale () {
         return this.sale;
     }
+
+    public void printReceipt ()  {
+        this.printer.printReceipt(getSale());
+    }
 }

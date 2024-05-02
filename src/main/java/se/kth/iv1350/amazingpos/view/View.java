@@ -69,13 +69,14 @@ public class View {
     }
 
     private void endSaleRequest () {
+        System.out.println("\nEnd Sale: ");
         System.out.println("Total cost (incl VAT): " + contr.getCurrentTotalSaleCost());
     }
 
     private void registerCustomerPayment (double payment) {
-        contr.registerPayment(payment);
+        System.out.println("\nCustomer pays " + payment + " SEK");
 
-        System.out.println("Customer pays " + payment + " SEK");
+        contr.registerPayment(payment);
     }
 
     private void printChangeToCustomer (double change) {
