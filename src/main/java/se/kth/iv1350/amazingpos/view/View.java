@@ -29,6 +29,8 @@ public class View {
     public void runFakeView() {
         contr.requestNewSale();
         enterArticleIdentifier(101, 5);
+        enterArticleIdentifier(101, 1);
+        enterArticleIdentifier(102, 2);
         endSaleRequest();
         registerCustomerPayment(100.0);
         printReceiptRequest();
