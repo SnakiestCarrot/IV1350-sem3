@@ -31,6 +31,7 @@ public class View {
         enterArticleIdentifier(101, 1);
         endSaleRequest();
         registerCustomerPayment(100.0);
+        printReceiptRequest();
     }
     /**
      * Prints the details of an article and the current running total after an identifier is entered.
@@ -74,7 +75,7 @@ public class View {
     }
 
     private void registerCustomerPayment (double payment) {
-        System.out.println("\nCustomer pays " + payment + " SEK");
+        System.out.println("\nCustomer pays " + payment + " SEK: ");
 
         contr.registerPayment(payment);
     }
@@ -83,5 +84,8 @@ public class View {
         System.out.println("Change to give to the customer: " + change);
     }
 
+    private void printReceiptRequest() {
+        this.contr.printReceipt();
+    }
 
 }
