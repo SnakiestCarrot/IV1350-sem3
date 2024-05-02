@@ -7,16 +7,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import se.kth.iv1350.amazingpos.controller.Controller;
-import se.kth.iv1350.amazingpos.integration.*;
-import se.kth.iv1350.amazingpos.model.*;
-
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import se.kth.iv1350.amazingpos.integration.ArticleCatalogHandler;
+import se.kth.iv1350.amazingpos.integration.ExternalAccountingManager;
+import se.kth.iv1350.amazingpos.integration.ReceiptPrinter;
+import se.kth.iv1350.amazingpos.model.SaleStatusDTO;
 
 public class ControllerTest {
-    private ArticleDTO testArticleDTOBanana;
-    private Article banana;
     private Controller testController;
     private ReceiptPrinter testPrinter;
     private ExternalAccountingManager testAccMan;
@@ -24,8 +20,6 @@ public class ControllerTest {
 
     @BeforeEach
     public void setUp() {
-        testArticleDTOBanana = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
-        banana = new Article(testArticleDTOBanana, 2);
 
         testPrinter = new ReceiptPrinter();
         testAccMan = new ExternalAccountingManager();
@@ -37,9 +31,6 @@ public class ControllerTest {
 
     @AfterEach
     public void tearDown() {
-        testArticleDTOBanana = null;
-        banana = null;
-
         testPrinter = null;
         testAccMan = null;
         testCatHan = null;
