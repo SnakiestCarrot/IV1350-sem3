@@ -12,6 +12,8 @@ import se.kth.iv1350.amazingpos.model.Sale;
 /**
  * Handles operations related to fetching article data transfer objects (DTOs) based on article identifiers.
  * This class checks the validity of an article identifier and retrieves the corresponding ArticleDTO if valid.
+ * 
+ * Stores made up items used for seminar task represented as ArticleDTOs.
  */
 public class ArticleCatalogHandler {
     private final int ID_OFFSET = 101;
@@ -48,6 +50,12 @@ public class ArticleCatalogHandler {
         return this.articleDTOList.get(identifier - ID_OFFSET);
     }
     
+    /**
+     * Fetches ArticleDTO from fake database based on identifier parameter.
+     * 
+     * @param identifier
+     * @return ArticleDTO
+     */
     public ArticleDTO fetchArticleDTO (int identifier) {
         if (!checkValidArticle(identifier)) {
             return null;
@@ -57,6 +65,11 @@ public class ArticleCatalogHandler {
         }
     }
 
+    /**
+     * Method for updating inventory system. Subtracts quantity of bought item in our made up database.
+     * 
+     * @param saleArticleList
+     */
     public void updateInventorySystem (ArrayList<Article> saleArticleList) {
         Article currentArticle;
 

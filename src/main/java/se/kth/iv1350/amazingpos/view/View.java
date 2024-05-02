@@ -1,5 +1,6 @@
 package se.kth.iv1350.amazingpos.view;
 
+import java.util.ArrayList;
 import se.kth.iv1350.amazingpos.controller.Controller;
 import se.kth.iv1350.amazingpos.model.Article;
 import se.kth.iv1350.amazingpos.model.Sale;
@@ -24,7 +25,8 @@ public class View {
     }
     
     /**
-     * Fakes a execution of the view running and issuing inputs and getting outputs
+     * Fakes a execution of the view running and issuing inputs and getting outputs.
+     * Prints out receipt at the end.
      */
     public void runFakeView() {
         contr.requestNewSale();
@@ -41,7 +43,7 @@ public class View {
      * @param articleDTO articleDTO contains details like name, price, vat rate and identifier.
      * @param totalSaleCost totalSaleCost represents the current state of the sum of all registered articles so far.
      */
-    private void printAfterIdentifierEntered (SaleStatusDTO saleStatus, double quantity) {
+    private void printAfterIdentifierEntered (SaleStatusDTO saleStatus) {
         Article article = saleStatus.getCurrentArticle();
         
         double articleQuantity = article.getQuantity();
@@ -54,33 +56,35 @@ public class View {
         double saleCost = saleStatus.getCurrentTotalSaleCost();
         double saleVAT = saleStatus.getCurrentTotalVAT();
         
-        System.out.println("");
-        System.out.println("Add " + quantity + " items with item id " + articleID);
+        System.out.println("Add " + articleQuantity + " with item id " + articleID);
         System.out.println("Item ID: " + articleID);
         System.out.println("Item name: " + articleName);
         System.out.println("Item cost: " + articleCost + " SEK");
         System.out.println("VAT: " + (articleVAT*100) + "%");
         System.out.println("Item description: " + articleDescription);
         System.out.println("");
-        System.out.printf("Total cost (incl VAT): %5.2f%n\n", saleCost);
-        System.out.printf("Total VAT: %5.2f%n\n", saleVAT);
+        System.out.println("Total cost (incl VAT): " + saleCost);
+        System.out.println("Total VAT: " + saleVAT);
     }
 
     private void enterArticleIdentifier (int identifier, double quantity) {
         SaleStatusDTO saleStatus = contr.enterArticle(identifier, quantity);
 
-        printAfterIdentifierEntered(saleStatus, quantity);
+        printAfterIdentifierEntered(saleStatus);
     }
 
     private void endSaleRequest () {
         System.out.println("\nEnd Sale: ");
-        System.out.printf("Total cost (incl VAT): %5.2f%n\n", contr.getCurrentTotalSaleCost());
+        System.out.println("Total cost (incl VAT): " + contr.getCurrentTotalSaleCost());
     }
 
     private void registerCustomerPayment (double payment) {
         System.out.println("\nCustomer pays " + payment + " SEK: ");
 
         contr.registerPayment(payment);
+        System.out.println("Sent sale info to external accounting system.");
+        System.out.println();
+        printArticleListSentToInventory(this.contr.getSale().getArticleList());
     }
 
     private void printChangeToCustomer (double change) {
@@ -89,6 +93,18 @@ public class View {
 
     private void printReceiptRequest() {
         this.contr.printReceipt();
+    }
+
+    private void printArticleListSentToInventory (ArrayList<Article> articleList) {
+        for (int i = 0; i < articleList.size(); i++) {
+            int identifier = articleList.get(i).getIdentifier();
+            double quantity = articleList.get(i).getQuantity();
+            System.out.println(
+                "Told external inventory system to decrease inventory quantity of item \n" 
+            +     identifier + " by " + quantity
+            );
+        }
+        
     }
 
 }

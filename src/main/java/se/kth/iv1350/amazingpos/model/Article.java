@@ -38,7 +38,7 @@ public class Article {
     /**
      * The equals method is used for testing purposes, to ensure two articles are equal.
      * @param articleToCompare The article object you are comparing with.
-     * @return
+     * @return boolean
      */
     public boolean equals (Article articleToCompare) {
         boolean identifierMatch = this.getIdentifier() == articleToCompare.getIdentifier();
@@ -75,10 +75,20 @@ public class Article {
         return this.quantity;
     }
 
+    /**
+     * Method for adding quantity to article.
+     * 
+     * @param quantityToAdd
+     */
     public void addQuantity (double quantityToAdd) {
         this.quantity += quantityToAdd;
     }
 
+    /**
+     * Method for subtracting quantity for article.
+     * 
+     * @param quantityToSubtract
+     */
     public void subtractQuantity (double quantityToSubtract) {
         this.quantity -= quantityToSubtract;
     }

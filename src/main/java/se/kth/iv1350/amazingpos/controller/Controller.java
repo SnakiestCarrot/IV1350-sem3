@@ -15,6 +15,7 @@ public class Controller {
     private ExternalAccountingManager accountingManager;
     private ArticleCatalogHandler catalogHandler;
     private Sale sale;
+
     /**
      * Initializes a new instance of the Controller class, setting up the necessary components for handling receipt printing,
      * accounting updates, and article information retrieval.
@@ -32,6 +33,9 @@ public class Controller {
         this.catalogHandler = catalogHandler;
     }
     
+    /**
+     * Creates instance of Sale class.
+     */
     public void requestNewSale() {
         this.sale = new Sale();
     }
@@ -40,6 +44,13 @@ public class Controller {
         return catalogHandler.fetchArticleDTO(identifier);
     }
 
+    /**
+     * Method to enter article based on identifier and quantity to the sale object.
+     * Returns a SaleStatusDTO for view to display information.
+     * @param identifier
+     * @param quantity
+     * @return SaleStatusDTO
+     */
     public SaleStatusDTO enterArticle (int identifier, double quantity) {
         return this.sale.enterArticleToSale(fetchArticleDTO(identifier), quantity);
     }
@@ -48,33 +59,26 @@ public class Controller {
         return this.sale.getTotalCost();
     }
 
+    /**
+     * Registers payment to sale. 
+     * @param payment
+     */
     public void registerPayment (double payment) {
         this.sale.registerFinalPayment(payment);
 
         accountingManager.updateAccountingSystem(this.sale.getTotalCost());
-        System.out.println("Sent sale info to external accounting system.");
-        System.out.println();
+
 
         catalogHandler.updateInventorySystem(this.sale.getArticleList());
-        printArticleListSentToInventory(this.sale.getArticleList());
-    }
-
-    private void printArticleListSentToInventory (ArrayList<Article> articleList) {
-        for (int i = 0; i < articleList.size(); i++) {
-            int identifier = articleList.get(i).getIdentifier();
-            double quantity = articleList.get(i).getQuantity();
-            System.out.println(
-                "Told external inventory system to decrease inventory quantity of item \n" 
-            +     identifier + " by " + quantity
-            );
-        }
-        
     }
 
     public Sale getSale () {
         return this.sale;
     }
 
+    /**
+     * Tells printer to print receipt.
+     */
     public void printReceipt ()  {
         this.printer.printReceipt(getSale());
     }

@@ -13,8 +13,13 @@ import se.kth.iv1350.amazingpos.model.Sale;
 public class ExternalAccountingManager {
     private double funds = 9999;
 
+    /**
+     * Method for updating accounting system. Adds sale to attribute "funds".
+     * Made up representation of system made for seminar task.
+     * 
+     * @param saleTotalCost
+     */
     public void updateAccountingSystem (double saleTotalCost) {
-        // vill vi ha inputsanering?
         if (saleTotalCost < 0) {
             throw new IllegalArgumentException("Sale total cost cannot be negative.");
         }

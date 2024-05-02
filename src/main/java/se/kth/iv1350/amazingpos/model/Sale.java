@@ -19,7 +19,7 @@ public class Sale {
     private ArrayList<Article> articleList = new ArrayList<Article>();
     
     /**
-     * makes a sale object :)
+     * Makes a sale object.
      */
     public Sale() {
         setSaleTime();
@@ -128,6 +128,11 @@ public class Sale {
         return new SaleStatusDTO (getArticleInList(artDTO), this.totalCost, this.totalSaleVAT);
     }
 
+    /**
+     * Method for register payment to sale. Sets payment and change attributes.
+     * 
+     * @param payment
+     */
     public void registerFinalPayment (double payment) {
         this.payment = payment;
         this.change = payment - totalCost;

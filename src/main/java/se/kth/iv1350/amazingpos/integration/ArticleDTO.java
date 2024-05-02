@@ -8,8 +8,7 @@ package se.kth.iv1350.amazingpos.integration;
 
 /**
  * ArticleDTO is a class that should represent the data collected from the 
- * ArticleCatalog about individual articles. It is placeholder for now.
- * @author caspt
+ * ArticleCatalog about individual articles. It is placeholder made for the seminar task.
  */
 public class ArticleDTO {
     private int identifier;
@@ -26,6 +25,12 @@ public class ArticleDTO {
         this.articleDescription = articleDescription;
     }
 
+    /**
+     * Method used for unit tests, test that articleDTO objects are equal. 
+     * 
+     * @param articleDTOToCompare
+     * @return boolean
+     */
     public boolean equals (ArticleDTO articleDTOToCompare) {
         boolean identifierMatch = this.getIdentifier() == articleDTOToCompare.getIdentifier();
         boolean priceMatch = this.getPrice() == articleDTOToCompare.getPrice();

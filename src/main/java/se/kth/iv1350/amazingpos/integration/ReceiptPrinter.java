@@ -13,6 +13,12 @@ import java.time.format.DateTimeFormatter;
  * ReceiptPrinter takes in SaleInformation and uses it to print a receipt at the end of the sale.
  */
 public class ReceiptPrinter {
+
+    /**
+     * Method to print and format the receipt.
+     * 
+     * @param sale
+     */
     public void printReceipt (Sale sale) {
         System.out.println("------------------ Begin receipt -------------------");
         System.out.println(sale.getSaleTime().format(DateTimeFormatter.ofPattern("d MMM uuuu HH:mm:ss")));
