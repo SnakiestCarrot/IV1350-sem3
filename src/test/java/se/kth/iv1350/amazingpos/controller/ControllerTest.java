@@ -2,6 +2,7 @@ package se.kth.iv1350.amazingpos.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +12,7 @@ import se.kth.iv1350.amazingpos.integration.ArticleCatalogHandler;
 import se.kth.iv1350.amazingpos.integration.ArticleDTO;
 import se.kth.iv1350.amazingpos.integration.ExternalAccountingManager;
 import se.kth.iv1350.amazingpos.integration.ReceiptPrinter;
+import se.kth.iv1350.amazingpos.model.Article;
 import se.kth.iv1350.amazingpos.model.Sale;
 
 public class ControllerTest {
@@ -76,6 +78,29 @@ public class ControllerTest {
 
         assertEquals(quantity * 2, sale.getArticleList().get(0).getQuantity());
     }
+
+    @Test
+    public void testAddingMultipleUniqueItemsToSale () {
+        ArticleDTO testArticleDTOBanana = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
+        ArticleDTO testArticleDTOOrange = new ArticleDTO(102, 1.99, 0.25, "Orange", "This is an orange");
+
+        Article testBanana = new Article(testArticleDTOBanana, 1);
+        Article testTwoBananas = new Article(testArticleDTOBanana, 2);
+        Article testOrange = new Article(testArticleDTOOrange, 1);
+
+        Sale sale = new Sale();
+
+        sale.enterArticleToSale(testArticleDTOBanana, 1);        
+        sale.enterArticleToSale(testArticleDTOOrange, 1);
+
+        assertTrue(sale.getArticleList().get(0).equals(testBanana) && 
+        sale.getArticleList().get(1).equals(testOrange), "Did not correctly add unique articles to sale.");
+
+        sale.enterArticleToSale(testArticleDTOBanana, 1);
+
+        assertTrue(sale.getArticleList().get(0).equals(testTwoBananas) && 
+        sale.getArticleList().get(1).equals(testOrange), "Did not update article quantity when adding a previously entered item.");
+    }
     
     @Test
     public void testRegisterPayment() {
@@ -85,8 +110,8 @@ public class ControllerTest {
         
         controller.registerPayment(payment);
         
-        assertNotNull(controller.getSale());
-        assertEquals(payment, controller.getSale().getPayment());
-        assertEquals(payment - controller.getSale().getTotalCost(), controller.getSale().getChange());
+        assertNotNull(controller.getFinalSaleDTO());
+        assertEquals(payment, controller.getFinalSaleDTO().getPayment());
+        assertEquals(payment - controller.getFinalSaleDTO().getTotalCost(), controller.getFinalSaleDTO().getChange());
     }
 }

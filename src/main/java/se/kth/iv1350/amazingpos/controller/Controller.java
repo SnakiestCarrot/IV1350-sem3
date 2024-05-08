@@ -1,6 +1,7 @@
 package se.kth.iv1350.amazingpos.controller;
 
 import se.kth.iv1350.amazingpos.integration.*;
+import se.kth.iv1350.amazingpos.model.FinalSaleDTO;
 import se.kth.iv1350.amazingpos.model.Sale;
 import se.kth.iv1350.amazingpos.model.SaleStatusDTO;
 
@@ -69,14 +70,14 @@ public class Controller {
         catalogHandler.updateInventorySystem(this.sale.getArticleList());
     }
 
-    public Sale getSale () {
-        return this.sale;
+    public FinalSaleDTO getFinalSaleDTO () {
+        return new FinalSaleDTO(this.sale);
     }
 
     /**
      * Tells printer to print receipt.
      */
     public void printReceipt ()  {
-        this.printer.printReceipt(getSale());
+        this.printer.printReceipt(getFinalSaleDTO());
     }
 }

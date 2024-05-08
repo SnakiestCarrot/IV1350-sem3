@@ -1,9 +1,9 @@
 package se.kth.iv1350.amazingpos.view;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import se.kth.iv1350.amazingpos.controller.Controller;
-import se.kth.iv1350.amazingpos.model.Article;
+import se.kth.iv1350.amazingpos.model.FinalSaleArticleDTO;
 import se.kth.iv1350.amazingpos.model.SaleStatusDTO;
 
 /**
@@ -39,7 +39,7 @@ public class View {
 
 
         //Change this.
-        printChangeToCustomer(contr.getSale().getChange());
+        printChangeToCustomer(contr.getFinalSaleDTO().getChange());
     }
 
     private void requestNewSale() {
@@ -94,7 +94,7 @@ public class View {
         contr.registerPayment(payment);
         System.out.println("Sent sale info to external accounting system.");
         System.out.println();
-        printArticleListSentToInventory(this.contr.getSale().getArticleList());
+        printArticleListSentToInventory(this.contr.getFinalSaleDTO().getArticleList());
     }
 
     private void printChangeToCustomer (double change) {
@@ -106,8 +106,7 @@ public class View {
     }
 
 
-    //REDO
-    private void printArticleListSentToInventory (ArrayList<Article> articleList) {
+    private void printArticleListSentToInventory (List<FinalSaleArticleDTO> articleList) {
         for (int i = 0; i < articleList.size(); i++) {
             int identifier = articleList.get(i).getIdentifier();
             double quantity = articleList.get(i).getQuantity();
