@@ -21,6 +21,8 @@ public class ControllerTest {
     private ExternalAccountingManager testAccMan;
     private ArticleCatalogHandler testCatHan;
     private ArticleDTO testArticleDTO;
+    private Sale testSale;
+
 
 
     @BeforeEach
@@ -32,6 +34,8 @@ public class ControllerTest {
 
         testController = new Controller(testPrinter, testAccMan, testCatHan);
         testController.requestNewSale();
+
+        testSale = new Sale();
     }
 
     @AfterEach
@@ -114,4 +118,13 @@ public class ControllerTest {
         assertEquals(payment, controller.getFinalSaleDTO().getPayment());
         assertEquals(payment - controller.getFinalSaleDTO().getTotalCost(), controller.getFinalSaleDTO().getChange());
     }
+
+    @Test
+    public void testInitialization() {
+        assertNotNull(testPrinter, "Printer should not be null after initialization");
+        assertNotNull(testAccMan, "Accounting Manager should not be null after initialization");
+        assertNotNull(testCatHan, "Catalog Handler should not be null after initialization");
+        assertNotNull(testSale, "Sale should not be null after initialization");
+    }
+
 }

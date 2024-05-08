@@ -66,7 +66,6 @@ public class Controller {
 
         accountingManager.updateAccountingSystem(this.sale.getTotalCost());
 
-
         catalogHandler.updateInventorySystem(this.sale.getArticleList());
     }
 
