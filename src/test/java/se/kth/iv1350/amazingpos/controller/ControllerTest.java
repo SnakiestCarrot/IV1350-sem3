@@ -78,8 +78,8 @@ public class ControllerTest {
         
         controller.registerPayment(payment);
         
-        assertNotNull(controller.getSale());
-        assertEquals(payment, controller.getSale().getPayment());
-        assertEquals(payment - controller.getSale().getTotalCost(), controller.getSale().getChange());
+        assertNotNull(controller.getFinalSaleDTO());
+        assertEquals(payment, controller.getFinalSaleDTO().getPayment());
+        assertEquals(payment - controller.getFinalSaleDTO().getTotalCost(), controller.getFinalSaleDTO().getChange());
     }
 }

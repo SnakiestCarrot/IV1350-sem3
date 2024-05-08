@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import se.kth.iv1350.amazingpos.model.FinalSaleArticleDTO;
 
 /**
  * Made after feedback for seminar 5.

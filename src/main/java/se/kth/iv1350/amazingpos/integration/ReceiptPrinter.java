@@ -4,8 +4,7 @@
  */
 package se.kth.iv1350.amazingpos.integration;
 import se.kth.iv1350.amazingpos.model.FinalSaleDTO;
-import se.kth.iv1350.amazingpos.model.Article;
-import se.kth.iv1350.amazingpos.model.Sale;
+import se.kth.iv1350.amazingpos.model.FinalSaleArticleDTO;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -33,7 +32,7 @@ public class ReceiptPrinter {
         System.out.println("------------------ End receipt ---------------------");
     }
 
-    private void printArticleInReceipt (Article article) {
+    private void printArticleInReceipt (FinalSaleArticleDTO article) {
         double quantity = article.getQuantity();
         double price = article.getPrice();
         String name = article.getName();
@@ -43,7 +42,7 @@ public class ReceiptPrinter {
         System.out.printf("%5.2f%n\n", totalPriceForArticle);
     }
 
-    private double calculateTotalArticleCost (Article article) {
+    private double calculateTotalArticleCost (FinalSaleArticleDTO article) {
         return article.getPrice() * article.getQuantity();
     }
 }
