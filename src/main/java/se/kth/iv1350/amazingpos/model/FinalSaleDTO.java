@@ -2,6 +2,10 @@ package se.kth.iv1350.amazingpos.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import se.kth.iv1350.amazingpos.model.FinalSaleArticleDTO;
 
 /**
  * Made after feedback for seminar 5.
@@ -15,7 +19,7 @@ public class FinalSaleDTO {
     private double totalSaleVAT;
     private double payment;
     private double change;
-    private ArrayList<Article> articleList = new ArrayList<Article>();
+    private List<FinalSaleArticleDTO> articleList;
 
     public FinalSaleDTO (Sale sale) {
         this.totalCost = sale.getTotalCost();
@@ -23,7 +27,14 @@ public class FinalSaleDTO {
         this.totalSaleVAT = sale.getTotalSaleVAT();
         this.payment = sale.getPayment();
         this.change = sale.getChange();
-        this.articleList = sale.getArticleList();
+
+        ArrayList<FinalSaleArticleDTO> mutableArticleList = new ArrayList<FinalSaleArticleDTO>();
+        
+        for (int i = 0; i < sale.getArticleList().size(); i++){
+            mutableArticleList.add(new FinalSaleArticleDTO(sale.getArticleList().get(i)));
+        }
+
+        this.articleList = Collections.unmodifiableList(mutableArticleList);
     }
 
     public double getTotalCost () {
@@ -46,7 +57,7 @@ public class FinalSaleDTO {
         return this.change;
     }
 
-    public ArrayList<Article> getArticleList () {
+    public List<FinalSaleArticleDTO> getArticleList () {
         return this.articleList;
     }
 
