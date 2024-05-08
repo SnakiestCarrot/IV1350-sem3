@@ -1,5 +1,11 @@
 package se.kth.iv1350.amazingpos.model;
 
+/**
+ * Added after feedback for seminar 5.
+ * 
+ * FinalSaleArticleDTO is used in the list in FinalSaleDTO.
+ * 
+ */
 public class FinalSaleArticleDTO {
 
     private int identifier;
