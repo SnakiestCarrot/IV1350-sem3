@@ -111,11 +111,14 @@ public class View {
         for (int i = 0; i < articleList.size(); i++) {
             int identifier = articleList.get(i).getIdentifier();
             double quantity = articleList.get(i).getQuantity();
-            System.out.printf(
-                "Told external inventory system to decrease inventory quantity of item \n%d by %.0f\n" 
-                    ,identifier, quantity);
+            printArticleSentToInventory(identifier, quantity);
         }
         
+    }
+    private void printArticleSentToInventory (int identifier, double quantity) {
+        System.out.printf(
+                "Told external inventory system to decrease inventory quantity of item \n%d by %.0f\n" 
+                    ,identifier, quantity);
     }
 
 }
