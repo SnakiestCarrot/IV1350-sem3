@@ -49,6 +49,19 @@ public class ControllerTest {
         assertEquals(identifier, saleStatus.getCurrentArticle().getIdentifier());
         assertEquals(quantity, saleStatus.getCurrentArticle().getQuantity());
     }
+
+    @Test
+    public void testRepeatedArticleEntry() {
+        int identifier = 101;
+        int quantity = 1;
+        
+        SaleStatusDTO saleStatus = testController.enterArticle(identifier, quantity);
+        testController.enterArticle(identifier, quantity);
+
+        assertNotNull(saleStatus);
+        assertEquals(identifier, saleStatus.getCurrentArticle().getIdentifier());
+        assertEquals(quantity, saleStatus.getCurrentArticle().getQuantity());
+    }
     
     @Test
     public void testRegisterPayment() {
