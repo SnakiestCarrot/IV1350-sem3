@@ -43,19 +43,20 @@ public class View {
         contr.requestNewSale();
     }
     /**
+     * Changed after feedback for seminar 5. 
+     *
      * Prints the details of an article and the current running total after an identifier is entered.
      * This method is designed to provide a quick summary of article information and total sales cost on the console. 
      * @param articleDTO articleDTO contains details like name, price, vat rate and identifier.
      * @param totalSaleCost totalSaleCost represents the current state of the sum of all registered articles so far.
      */
     private void printAfterIdentifierEntered (SaleStatusDTO saleStatus, double quantity) {
-        Article article = saleStatus.getCurrentArticle();
         
-        int articleID = article.getIdentifier();
-        String articleName = article.getName();
-        double articleCost = article.getPrice();
-        double articleVAT = article.getVatRate();
-        String articleDescription = article.getArticleDescription();
+        int articleID = saleStatus.getIdentifier();
+        String articleName = saleStatus.getArticleName();
+        double articleCost = saleStatus.getArticleCost();
+        double articleVAT = saleStatus.getArticleVatRate();
+        String articleDescription = saleStatus.getArticleDescription();
 
         double saleCost = saleStatus.getCurrentTotalSaleCost();
         double saleVAT = saleStatus.getCurrentTotalVAT();
