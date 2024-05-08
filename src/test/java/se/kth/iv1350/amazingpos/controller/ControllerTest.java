@@ -41,6 +41,11 @@ public class ControllerTest {
         testController = null;
     }
     
+    /*
+     * This tests the enterArticleToSale method. 
+     * The intent is to test the branch where the if statement is false so a
+     * new article is created in the list rather than a quantity being added
+     */
     @Test
     public void testEnterArticle() {
         testArticleDTO = new ArticleDTO(101, 2.99, 0.25, "Banana", "This is a banana");
@@ -54,8 +59,10 @@ public class ControllerTest {
     }
 
     /* 
-     * This test is to address the following feedback
+     * This test is to address the following feedback:
      * 2. The tests for the controller are not complete, there's for example no test for alternative flow 3-4b.
+     * It tests the method enterArticleToSale and intends to test the branch where the if statement is true, so that 
+     * a quantity is added to an existing article
      */
     @Test
     public void testRepeatedArticleEntry() {
