@@ -36,6 +36,9 @@ public class View {
         endSaleRequest();
         registerCustomerPayment(100.0);
         printReceiptRequest();
+
+
+        //Change this.
         printChangeToCustomer(contr.getSale().getChange());
     }
 
@@ -102,6 +105,8 @@ public class View {
         this.contr.printReceipt();
     }
 
+
+    //REDO
     private void printArticleListSentToInventory (ArrayList<Article> articleList) {
         for (int i = 0; i < articleList.size(); i++) {
             int identifier = articleList.get(i).getIdentifier();
