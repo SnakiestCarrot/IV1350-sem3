@@ -39,7 +39,7 @@ public class View {
 
 
         //Change this.
-        printChangeToCustomer(contr.getSale().getChange());
+        printChangeToCustomer(contr.getFinalSaleDTO().getChange());
     }
 
     private void requestNewSale() {
@@ -94,7 +94,7 @@ public class View {
         contr.registerPayment(payment);
         System.out.println("Sent sale info to external accounting system.");
         System.out.println();
-        printArticleListSentToInventory(this.contr.getSale().getArticleList());
+        printArticleListSentToInventory(this.contr.getFinalSaleDTO().getArticleList());
     }
 
     private void printChangeToCustomer (double change) {
