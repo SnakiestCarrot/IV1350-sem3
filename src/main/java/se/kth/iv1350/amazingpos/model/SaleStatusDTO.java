@@ -24,7 +24,6 @@ public class SaleStatusDTO {
      */
 
     SaleStatusDTO (Article currentArticle, double currentTotalCost, double currentTotalVAT) {
-        this.currentArticle = currentArticle;
         this.currentTotalCost = currentTotalCost;
         this.currentTotalVAT = currentTotalVAT;
         this.articleID = currentArticle.getIdentifier();
@@ -34,9 +33,6 @@ public class SaleStatusDTO {
         this.articleDescription = currentArticle.getArticleDescription();
     }
 
-    public Article getCurrentArticle () {
-        return this.currentArticle;
-    }
 
     public double getCurrentTotalSaleCost () {
         return this.currentTotalCost;
