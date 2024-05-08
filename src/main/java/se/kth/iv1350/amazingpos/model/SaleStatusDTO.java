@@ -1,7 +1,6 @@
 package se.kth.iv1350.amazingpos.model;
 
 public class SaleStatusDTO {
-    private Article currentArticle;
 
     private double currentTotalCost;
     private double currentTotalVAT;
