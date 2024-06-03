@@ -28,13 +28,13 @@ public class ArticleTest {
     public void testAddingArticleQuantity() {
         testArticle.addQuantity(10);
 
-        assertTrue(testArticle.getQuantity() == 20);
+        assertTrue(testArticle.getQuantity() == 20, "The article does not have the expected quantity.");
     }
 
     @Test
     public void testSubtractingArticleQuantity() {
         testArticle.subtractQuantity(5);
 
-        assertTrue(testArticle.getQuantity() == 5);
+        assertTrue(testArticle.getQuantity() == 5, "The article does not have the expected quantity.");
     }
 }
