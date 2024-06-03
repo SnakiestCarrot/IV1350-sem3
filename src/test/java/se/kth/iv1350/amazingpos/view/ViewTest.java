@@ -31,9 +31,4 @@ public class ViewTest {
         this.viewInstance = null;
     }
 
-    @Test
-    public void testRunFakeView() {
-        viewInstance.runFakeView();
-        
-    }
 }

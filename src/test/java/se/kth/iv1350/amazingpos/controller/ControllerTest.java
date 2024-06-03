@@ -61,7 +61,7 @@ public class ControllerTest {
         Sale sale = new Sale();
         sale.enterArticleToSale(testArticleDTO, quantity);
 
-        assertEquals(quantity, sale.getArticleList().get(0).getQuantity());
+        assertEquals(quantity, sale.getArticleList().get(0).getQuantity(), "The item within the list did not update the quantity correctly.");
     }
 
     /* 
@@ -80,7 +80,7 @@ public class ControllerTest {
         sale.enterArticleToSale(testArticleDTO, quantity);
         sale.enterArticleToSale(testArticleDTO, quantity);
 
-        assertEquals(quantity * 2, sale.getArticleList().get(0).getQuantity());
+        assertEquals(quantity * 2, sale.getArticleList().get(0).getQuantity(), "The item within the list did not update the quantity correctly.");
     }
 
     @Test
@@ -114,9 +114,9 @@ public class ControllerTest {
         
         controller.registerPayment(payment);
         
-        assertNotNull(controller.getFinalSaleDTO());
-        assertEquals(payment, controller.getFinalSaleDTO().getPayment());
-        assertEquals(payment - controller.getFinalSaleDTO().getTotalCost(), controller.getFinalSaleDTO().getChange());
+        assertNotNull(controller.getFinalSaleDTO(), "getFinalSaleDTO returns null, when an object of type FinalSaleDTO was expected");
+        assertEquals(payment, controller.getFinalSaleDTO().getPayment(), "Payment does not match the expected value.");
+        assertEquals(payment - controller.getFinalSaleDTO().getTotalCost(), controller.getFinalSaleDTO().getChange(), "Total cost does not match the expected value.");
     }
 
     @Test
